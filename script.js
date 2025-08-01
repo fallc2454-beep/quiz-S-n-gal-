@@ -54,3 +54,11 @@ nextBtn.onclick = () => {
     scoreEl.classList.remove("hidden");
   }
 };
+
+function showTab(tab) {
+  if (tab === "quiz") {
+    document.querySelector(".quiz-container").style.display = "block";
+  } else if (tab === "points") {
+    alert("Tu as marqué " + score + " point(s).");
+  }
+}

@@ -17,6 +17,7 @@ Une application web simple et mobile-friendly pour tester ses connaissances sur 
 - ✅ Correction immédiate avec couleurs (vert/rouge)
 - ✅ Score affiché à la fin
 - ✅ Responsive design (adapté aux téléphones)
+- ✅ Barre de navigation mobile
 - ✅ Questions stockées dans un fichier JSON facile à modifier
 
 ---
@@ -43,39 +44,6 @@ quiz-app/
 
 ---
 
-## ✍️ Modifier ou ajouter des questions
-
-Les questions sont dans le fichier `questions.json`.  
-Format :
-
-```json
-[
-  {
-    "question": "Quelle est la capitale du Sénégal ?",
-    "answers": ["Dakar", "Saint-Louis", "Kaolack", "Ziguinchor"],
-    "correct": "Dakar"
-  }
-]
-```
-
----
-
-## 📌 Idées d’amélioration (à venir)
-
-- Enregistrement du score
-- Comptes utilisateurs
-- Timer / chronomètre
-- Quiz thématiques (langues, histoire, sport...)
-
----
-
-## 📜 Licence
-
-Projet libre et open-source – Tu peux l’utiliser, le modifier et le partager !
-
----
-
 ## 👤 Auteur
 
-Bay Gaïndé Design  
-[LinkedIn, Portfolio, ou Email ici si tu veux]
+Bay Gaïndé Design

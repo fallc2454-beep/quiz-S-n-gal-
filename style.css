@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  padding: 20px;
+  padding-bottom: 80px;
   background-color: #f5f5f5;
   text-align: center;
 }
@@ -30,4 +30,30 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.bottom-nav button:hover {
+  color: #009e60;
 }

@@ -1,6 +1,6 @@
 [
   {
-    "question": "Quelle est la capitale du Sénégal ?",
+    "question": "Quel est capital du Sénégal ?",
     "answers": ["Dakar", "Saint-Louis", "Kaolack", "Ziguinchor"],
     "correct": "Dakar"
   },
@@ -8,5 +8,10 @@
     "question": "En quelle année le Sénégal a-t-il obtenu son indépendance ?",
     "answers": ["1960", "1958", "1963", "1970"],
     "correct": "1960"
+  },
+  {
+    "question": "Qui etait le premier president du Sénégal",
+    "answers": ["Macky Sall","Lamine Gueye","Leopol Sedar Senghor"],
+    "correct": "leopol Sedar Senghor"
   }
 ]
