@@ -1,18 +1,32 @@
 let currentQuestion = 0;
 let score = 0;
 let questions = [];
+let previousScore = localStorage.getItem("quiz_score") || null;
 
 const questionEl = document.getElementById("question");
 const answersEl = document.getElementById("answers");
 const nextBtn = document.getElementById("next-btn");
-const scoreEl = document.getElementById("score");
+const quizContainer = document.querySelector(".quiz-container");
+const homeScreen = document.getElementById("home-screen");
+const pointsScreen = document.getElementById("points-screen");
+const lastScoreEl = document.getElementById("last-score");
+const previousScoreEl = document.getElementById("previous-score");
+const appreciationEl = document.getElementById("appreciation");
 
-fetch('questions.json')
+fetch("questions.json")
   .then(res => res.json())
   .then(data => {
     questions = data;
-    showQuestion();
   });
+
+function startQuiz() {
+  homeScreen.classList.add("hidden");
+  pointsScreen.classList.add("hidden");
+  quizContainer.classList.remove("hidden");
+  currentQuestion = 0;
+  score = 0;
+  showQuestion();
+}
 
 function showQuestion() {
   const q = questions[currentQuestion];
@@ -47,18 +61,38 @@ nextBtn.onclick = () => {
   if (currentQuestion < questions.length) {
     showQuestion();
   } else {
-    questionEl.textContent = "Quiz terminé !";
-    answersEl.innerHTML = "";
-    nextBtn.classList.add("hidden");
-    scoreEl.textContent = `Score : ${score} / ${questions.length}`;
-    scoreEl.classList.remove("hidden");
+    endQuiz();
   }
 };
 
+function endQuiz() {
+  quizContainer.classList.add("hidden");
+  pointsScreen.classList.remove("hidden");
+
+  lastScoreEl.textContent = `Ton score actuel : ${score}/${questions.length}`;
+  if (previousScore !== null) {
+    previousScoreEl.textContent = `Score précédent : ${previousScore}/${questions.length}`;
+    const diff = score - previousScore;
+    if (diff > 0) appreciationEl.textContent = "👏 Bien joué ! Tu t'améliores.";
+    else if (diff < 0) appreciationEl.textContent = "📉 Tu feras mieux la prochaine fois.";
+    else appreciationEl.textContent = "🔁 Score identique. Essaye un autre thème ?"
+  } else {
+    previousScoreEl.textContent = "Pas de score précédent enregistré.";
+    appreciationEl.textContent = "🎉 Bravo pour ta première tentative !";
+  }
+
+  localStorage.setItem("quiz_score", score);
+  previousScore = score;
+}
+
 function showTab(tab) {
   if (tab === "quiz") {
-    document.querySelector(".quiz-container").style.display = "block";
+    homeScreen.classList.remove("hidden");
+    quizContainer.classList.add("hidden");
+    pointsScreen.classList.add("hidden");
   } else if (tab === "points") {
-    alert("Tu as marqué " + score + " point(s).");
+    quizContainer.classList.add("hidden");
+    homeScreen.classList.add("hidden");
+    endQuiz();
   }
 }

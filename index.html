@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quiz Sénégal</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Quiz Culture Générale - Sénégal</h1>
+  <div id="home-screen">
+    <img src="assets/images/Logo.png" alt="Quiz Sénégal Logo" class="Logo" />
+    <h1>Quiz Sénégal</h1>
+    <button onclick="startQuiz()">Commencer le Quiz</button>
+  </div>
+
+  <div class="quiz-container hidden">
+    <h2>Quiz Culture Générale</h2>
     <div id="question-container">
       <p id="question">Chargement...</p>
       <div id="answers"></div>
     </div>
     <button id="next-btn" class="hidden">Suivant</button>
-    <p id="score" class="hidden"></p>
+  </div>
+
+  <div id="points-screen" class="hidden">
+    <h2>Mes Scores</h2>
+    <p id="last-score"></p>
+    <p id="previous-score"></p>
+    <p id="appreciation"></p>
+    <button onclick="startQuiz()">🔁 Rejouer</button>
   </div>
 
   <nav class="bottom-nav">
     <button onclick="showTab('quiz')">🧠 Quiz</button>
     <button onclick="showTab('points')">⭐ Mes Points</button>
-    <button onclick="location.reload()">🔁 Rejouer</button>
+    <button onclick="startQuiz()">🔁 Rejouer</button>
   </nav>
 
   <script src="script.js"></script>

@@ -5,6 +5,19 @@ body {
   text-align: center;
 }
 
+.logo {
+  width: 100px;
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+#home-screen {
+  padding: 20px;
+}
+
 .quiz-container {
   max-width: 500px;
   margin: auto;
@@ -26,10 +39,6 @@ button {
 
 button:hover {
   background-color: #007a49;
-}
-
-.hidden {
-  display: none;
 }
 
 .bottom-nav {
